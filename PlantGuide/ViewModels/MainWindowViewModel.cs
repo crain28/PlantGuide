@@ -235,7 +235,6 @@ namespace PlantGuide.ViewModels
             }
         }
 
-
         private void OnDeletePlant()
         {
             if (_selectedPlant != null)
@@ -303,7 +302,6 @@ namespace PlantGuide.ViewModels
                         // update plant in persistence
                         _pBusiness.UpdatePlant(DetailedViewPlant);
 
-                        //
                         // update plant in list - update view
                         _plants.Remove(plantToUpdate);
                         _plants.Add(DetailedViewPlant);

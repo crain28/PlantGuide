@@ -113,11 +113,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="DataLayer\Images\Cattail.jpg" />
-    <Content Include="DataLayer\Images\Clover.jfif" />
-    <Resource Include="DataLayer\Images\dandelion.jpg" />
-    <Resource Include="DataLayer\Images\Mint.jpg" />
-    <Resource Include="DataLayer\Images\Thistle.jpg" />
+    <Resource Include="Images\Cattail.jpg" />
+    <Content Include="Images\Clover.jfif" />
+    <Resource Include="Images\dandelion.jpg" />
+    <Resource Include="Images\Mint.jpg" />
+    <Resource Include="Images\Thistle.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
