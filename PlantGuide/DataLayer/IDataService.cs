@@ -9,7 +9,9 @@ namespace PlantGuide.DataLayer
 {
     public interface IDataService
     {
+        // interfaces are public by default so any class that implements the interface has to have the same methods as public.
         IEnumerable<PlantDetail> ReadAll();
-        void WriteAll(IEnumerable<PlantDetail> plants);
+
+        public void WriteAll(IEnumerable<PlantDetail> plants);
     }
 }
