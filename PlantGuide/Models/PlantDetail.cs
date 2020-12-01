@@ -23,6 +23,7 @@ namespace PlantGuide.Models
         private string _imageFilePath;
         private string _description;
         private string _uses;
+        private string _region;
 
 
         #endregion
@@ -87,6 +88,16 @@ namespace PlantGuide.Models
             set { _uses = value;
                 OnPropertyChanged(nameof(Uses));
             } 
+        }
+
+        public string Region
+        {
+            get { return _region; }
+            set
+            {
+                _region = value;
+                OnPropertyChanged(nameof(Region));
+            }
         }
 
         #endregion

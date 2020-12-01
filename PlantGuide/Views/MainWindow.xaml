@@ -289,10 +289,10 @@
                             <Label Content="Name: " Style="{StaticResource DetailLabelStyle}"/>
                             <TextBox Text="{Binding DetailedViewPlant.Name}" Style="{StaticResource DetailTextBoxStyle}"/>
                         </StackPanel>                      
-                        <!--<StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal">
                             <Label Content="Region: " Style="{StaticResource DetailLabelStyle}"/>
-                            <TextBox Text="{Binding DetailedViewPlant.Age}" Style="{StaticResource DetailTextBoxStyle}"/>
-                        </StackPanel>-->                        
+                            <TextBox Text="{Binding DetailedViewPlant.Region}" Style="{StaticResource DetailTextBoxStyle}"/>
+                        </StackPanel>                        
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Uses: " Style="{StaticResource DetailLabelStyle}"/>
                             <TextBox Text="{Binding DetailedViewPlant.Uses}" Style="{StaticResource DetailTextBoxStyle}"/>
