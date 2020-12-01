@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PlantGuide.Models
 {
-    class PlantDetail : ObservableObject
+    public class PlantDetail : ObservableObject
     {
         #region ENUMS
 
@@ -22,6 +22,7 @@ namespace PlantGuide.Models
         private string _imageFileName;
         private string _imageFilePath;
         private string _description;
+        private string _uses;
 
 
         #endregion
@@ -80,11 +81,19 @@ namespace PlantGuide.Models
             }
         }
 
+        public string Uses 
+        {
+            get { return _uses; }
+            set { _uses = value;
+                OnPropertyChanged(nameof(Uses));
+            } 
+        }
+
         #endregion
 
         #region CONSTRUCTORS
 
-         
+
 
         #endregion
 

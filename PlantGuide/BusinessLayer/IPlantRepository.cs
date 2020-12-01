@@ -14,11 +14,11 @@ namespace PlantGuide.BusinessLayer
         
         PlantDetail GetById(int id);
 
-        public void Add(PlantDetail plant);
+        void Add(PlantDetail plant);
 
-        public void Update(PlantDetail plant);
+        void Update(PlantDetail plant);
 
-        public void Delete(int id);
+        void Delete(int id);
     }
 }
 

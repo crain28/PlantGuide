@@ -63,6 +63,10 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
+
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -98,7 +102,7 @@
             <StackPanel
                 Grid.Column="0"
                 Orientation="Vertical"
-                Margin="20,20,0,20">
+                Margin="10,20,0,20">
 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -153,12 +157,12 @@
                     </StackPanel>
                     <StackPanel
                         Grid.Row="2"
-                        Margin="0,0.2,0,0.4"
+                        Margin="0,0,0,0"
                         Orientation="Horizontal">
                         <Label Content="Sort by:" Style="{StaticResource MasterLabelTextStyle}"/>
                         <RadioButton 
                             Name="RadioButton_LastNameSort"
-                            Margin="10,5,0,0"
+                            Margin="5,5,0,0"
                             Content="Posionous"
                             Style="{StaticResource RadioButtonStyle}"
                             Command="{Binding Path=SortPlantsListCommand}"
@@ -166,7 +170,7 @@
                             IsChecked="True"/>
                         <RadioButton 
                             Name="RadioButton_AgeSort"
-                            Margin="10,5,0,0"
+                            Margin="5,5,0,0"
                             Content="edible"
                             Style="{StaticResource RadioButtonStyle}"
                             Command="{Binding Path=SortPlantsListCommand}"
@@ -193,7 +197,7 @@
                     <ListBox 
                     x:Name="_master"
                     Grid.Column="0"
-                    Margin="0,10,10,0"
+                    Margin="0,10,10.4,0"
                     BorderThickness="0"
                     Background="White"
                     ItemsSource="{Binding Plants}"
@@ -216,17 +220,14 @@
                                         <StackPanel
                                             Orientation="Horizontal">
                                             <Label
-                                                Content="{Binding FullName}"
+                                                Content="{Binding Name}"
                                                 Width="120"
                                                 Style="{StaticResource MasterLabelTextStyle}"/>
                                             <Label
-                                                Content="{Binding Age }"
+                                                Content="{Binding Region }"
                                                 Padding="0,5"
                                                 Style="{StaticResource MasterLabelTextStyle}"/>
-                                            <Label
-                                                Content=" yrs"
-                                                Padding="0,5"
-                                                Style="{StaticResource MasterLabelTextStyle}"/>
+                                            
                                         </StackPanel>
                                         <StackPanel
                                             Orientation="Horizontal">
@@ -286,7 +287,7 @@
                     Orientation="Vertical">
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Name: " Style="{StaticResource DetailLabelStyle}"/>
-                            <TextBox Text="{Binding DetailedViewPlant.FirstName}" Style="{StaticResource DetailTextBoxStyle}"/>
+                            <TextBox Text="{Binding DetailedViewPlant.Name}" Style="{StaticResource DetailTextBoxStyle}"/>
                         </StackPanel>                      
                         <!--<StackPanel Orientation="Horizontal">
                             <Label Content="Region: " Style="{StaticResource DetailLabelStyle}"/>
@@ -294,7 +295,7 @@
                         </StackPanel>-->                        
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Uses: " Style="{StaticResource DetailLabelStyle}"/>
-                            <TextBox Text="{Binding DetailedViewPlant.HireDate, StringFormat='\{0:MM/dd/yyyy\}'}" Style="{StaticResource DetailTextBoxStyle}"/>
+                            <TextBox Text="{Binding DetailedViewPlant.Uses}" Style="{StaticResource DetailTextBoxStyle}"/>
                         </StackPanel>                        
                         <StackPanel Orientation="Vertical">
                             <Label Content="Description: " Style="{StaticResource DetailLabelStyle}"/>

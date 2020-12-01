@@ -12,7 +12,7 @@ using PlantGuide.DataLayer;
 using PlantGuide.HelperMethods;
 using PlantGuide.Models;
 
-namespace PlantGuide.ViewModels
+namespace PlantGuide
 {
     class MainWindowViewModel
     {
@@ -216,10 +216,15 @@ namespace PlantGuide.ViewModels
 
         #region CONSTRUCTORS
 
-        public MainWindowViewModel(PlantBusiness pBusiness)
+        public MainWindowViewModel()
         {
-            _pBusiness = pBusiness;
-            _plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
+            // make path for the code below
+
+            //_pBusiness = new PlantBusiness();
+            //Plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
+
+            Plants = new ObservableCollection<PlantDetail>(SeedData.GetPlants());
+
             UpdateImagePath();
         }
 

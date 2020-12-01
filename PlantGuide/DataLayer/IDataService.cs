@@ -12,6 +12,6 @@ namespace PlantGuide.DataLayer
         // interfaces are public by default so any class that implements the interface has to have the same methods as public.
         IEnumerable<PlantDetail> ReadAll();
 
-        public void WriteAll(IEnumerable<PlantDetail> plants);
+        void WriteAll(IEnumerable<PlantDetail> plants);
     }
 }
