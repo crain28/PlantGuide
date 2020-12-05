@@ -79,7 +79,7 @@ namespace PlantGuide
 
         public ICommand RegionFilterPlantsListCommand
         {
-            get { return new RelayCommand(OnReigonFilterPlantsList); }
+            get { return new RelayCommand(OnRegionFilterPlantsList); }
         }
 
 
