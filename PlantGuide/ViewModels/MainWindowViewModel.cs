@@ -105,8 +105,10 @@ namespace PlantGuide
         private string _sortType;
         private string _searhText;
         private string _poisonousText;
+        private string _regionText;
         private string _edibleText;
         private string minRegion;
+        
 
 
         #endregion
@@ -204,6 +206,16 @@ namespace PlantGuide
             {
                 _edibleText = value;
                 OnPropertyChanged(nameof(EdibleText));
+            }
+        }
+
+        public string RegionText
+        {
+            get { return _regionText; }
+            set
+            {
+                _regionText = value;
+                OnPropertyChanged(nameof(RegionText));
             }
         }
 
@@ -392,20 +404,20 @@ namespace PlantGuide
 
         // Region need to make changes to have region N, S, W, E as values
 
-        //private void OnReigonFilterPlantsList()
-        //{
-        //    // reset search text box
-        //    SearchText = "";
+        private void OnRegionFilterPlantsList()
+        {
+            // reset search text box
+            SearchText = "";
 
-        //    if (int.TryParse(RegionText, out int minRegion) && int.TryParse(RegionText, out int maxRegion))
-        //    {
-        //        // reset to full list before search
-        //        _plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
-        //        UpdateImagePath();
+            if (int.TryParse(RegionText, out int minRegion) && int.TryParse(RegionText, out int maxRegion))
+            {
+                // reset to full list before search
+                _plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
+                UpdateImagePath();
 
-        //        Plants = new ObservableCollection<PlantDetail>(_plants.Where(c => c.Region >= minRegion && c.Region <= maxRegion));
-        //    }
-        //}
+                Plants = new ObservableCollection<PlantDetail>(_plants.Where(c => c.Region >= minRegion && c.Region <= maxRegion));
+            }
+        }
 
         private void OnResetPlantsList()
         {
