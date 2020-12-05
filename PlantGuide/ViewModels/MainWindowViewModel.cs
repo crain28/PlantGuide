@@ -390,21 +390,22 @@ namespace PlantGuide
             Plants = new ObservableCollection<PlantDetail>(_plants.Where(c => c.Name.ToLower().Contains(_searhText)));
         }
 
-        // For Region need to make changes to have region N, S, W, E as values
-        private void OnReigonFilterPlantsList()
-        {
-            // reset search text box
-            SearchText = "";
+        // Region need to make changes to have region N, S, W, E as values
 
-            if (int.TryParse(PoisionousText, out int minAge) && int.TryParse(PoisionousText, out int maxPoisionous))
-            {
-                // reset to full list before search
-                _plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
-                UpdateImagePath();
+        //private void OnReigonFilterPlantsList()
+        //{
+        //    // reset search text box
+        //    SearchText = "";
 
-                Plants = new ObservableCollection<PlantDetail>(_plants.Where(c => c.Region >= minRegion && c.Region <= maxRegion));
-            }
-        }
+        //    if (int.TryParse(RegionText, out int minRegion) && int.TryParse(RegionText, out int maxRegion))
+        //    {
+        //        // reset to full list before search
+        //        _plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
+        //        UpdateImagePath();
+
+        //        Plants = new ObservableCollection<PlantDetail>(_plants.Where(c => c.Region >= minRegion && c.Region <= maxRegion));
+        //    }
+        //}
 
         private void OnResetPlantsList()
         {
