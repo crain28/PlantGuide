@@ -25,6 +25,14 @@ namespace PlantGuide.DataLayer
                     ImageFileName = "Thistle.jpg",
                     Description = "The Flower of the thiste plant is edible. you can cook it a while to make the thorns brittle so they fall off"
                 },
+                new PlantDetail()
+                {
+                    Id = 3,
+                    Name = "Cattail",
+                    Uses = "Edible",
+                    ImageFileName = "Cattail.jpg",
+                    Description = "Everything apart of this plant are edible make sure it is washed be for consummig."
+                }
 
 
             };

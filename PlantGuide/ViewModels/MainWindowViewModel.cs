@@ -72,15 +72,15 @@ namespace PlantGuide
             get { return new RelayCommand(OnQuitApplication); }
         }
 
-        //public ICommand SortPlantsListCommand
-        //{
-        //    get { return new RelayCommand(new Action<object>(OnSortPlantsList)); }
-        //}
+        public ICommand SortPlantsListCommand
+        {
+            get { return new RelayCommand(new Action<object>(OnSortPlantsList)); }
+        }
 
-        //public ICommand AgeFilterPlantsListCommand
-        //{
-        //    get { return new RelayCommand(OnAgeFilterPlantsList); }
-        //}
+        public ICommand RegionFilterPlantsListCommand
+        {
+            get { return new RelayCommand(OnReigonFilterPlantsList); }
+        }
 
 
         #endregion
@@ -104,8 +104,9 @@ namespace PlantGuide
 
         private string _sortType;
         private string _searhText;
-        private string _minAgeText;
-        private string _maxAgeText;
+        private string _poisonousText;
+        private string _edibleText;
+        private string minRegion;
 
 
         #endregion
@@ -186,24 +187,23 @@ namespace PlantGuide
             }
         }
 
-
-        public string MaxAgeText
+        public string PoisionousText
         {
-            get { return _maxAgeText; }
+            get { return _poisonousText; }
             set
             {
-                _maxAgeText = value;
-                OnPropertyChanged(nameof(MaxAgeText));
+                _poisonousText = value;
+                OnPropertyChanged(nameof(PoisionousText));
             }
         }
 
-        public string MinAgeText
+        public string EdibleText
         {
-            get { return _minAgeText; }
+            get { return _edibleText; }
             set
             {
-                _minAgeText = value;
-                OnPropertyChanged(nameof(MinAgeText));
+                _edibleText = value;
+                OnPropertyChanged(nameof(EdibleText));
             }
         }
 
@@ -219,6 +219,7 @@ namespace PlantGuide
         public MainWindowViewModel()
         {
             // make path for the code below
+
 
             //_pBusiness = new PlantBusiness();
             //Plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
@@ -357,36 +358,30 @@ namespace PlantGuide
             System.Environment.Exit(1);
         }
 
-        //todo -- change age to region
-        //private void OnSortListByAge()
-        //{
-        //    Plants = new ObservableCollection<PlantDetail>(_plants.OrderBy(c => c.Age));
-        //}
+        private void OnSortListByPoisionous()
+        {
+            Plants = new ObservableCollection<PlantDetail>(_plants.OrderBy(c => c.Poisionous));
+        }
 
-        //private void OnSortPlantsList(object obj)
-        //{
-        //    string sortType = obj.ToString();
-        //    switch (sortType)
-        //    {
-        //        case "Age":
-        //            Plants = new ObservableCollection<PlantDetail>(Plants.OrderBy(c => c.Age));
-        //            break;
+        private void OnSortPlantsList(object obj)
+        {
+            string sortType = obj.ToString();
+            switch (sortType)
+            {
+                case "Poisionous":
+                    Plants = new ObservableCollection<PlantDetail>(Plants.OrderBy(c => c.Poisionous));
+                    break;
 
-        //        case "LastName":
-        //            Plants = new ObservableCollection<PlantDetail>(Plants.OrderBy(c => c.LastName));
-        //            break;
-
-        //        default:
-        //            break;
-        //    }
-
-        //}
+                default:
+                    break;
+            }
+        }
 
         private void OnSearchPlantsList()
         {
-            // reset age filters
-            MinAgeText = "";
-            MaxAgeText = "";
+            // reset poisionous filters
+            PoisionousText = "";
+            EdibleText = "";
 
             // reset to full list before search
             _plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
@@ -395,31 +390,30 @@ namespace PlantGuide
             Plants = new ObservableCollection<PlantDetail>(_plants.Where(c => c.Name.ToLower().Contains(_searhText)));
         }
 
-        //private void OnAgeFilterPlantsList()
-        //{
-        //    // reset search text box
-        //    SearchText = "";
+        // For Region need to make changes to have region N, S, W, E as values
+        private void OnReigonFilterPlantsList()
+        {
+            // reset search text box
+            SearchText = "";
 
-        //    if (int.TryParse(MinAgeText, out int minAge) && int.TryParse(MaxAgeText, out int maxAge))
-        //    {
-        //        // reset to full list before search
-        //        _plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
-        //        UpdateImagePath();
+            if (int.TryParse(PoisionousText, out int minAge) && int.TryParse(PoisionousText, out int maxPoisionous))
+            {
+                // reset to full list before search
+                _plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
+                UpdateImagePath();
 
-        //        Plants = new ObservableCollection<PlantDetail>(_plants.Where(c => c.Age >= minAge && c.Age <= maxAge));
-        //    }
-        //}
+                Plants = new ObservableCollection<PlantDetail>(_plants.Where(c => c.Region >= minRegion && c.Region <= maxRegion));
+            }
+        }
 
         private void OnResetPlantsList()
         {
             // reset search and filter text boxes
             SearchText = "";
-            MinAgeText = "";
-            MaxAgeText = "";
+            PoisionousText = "";
+            EdibleText = "";
 
-            //
             // reset to full list 
-            //
             _plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
             UpdateImagePath();
 
