@@ -134,18 +134,14 @@
                         Grid.Row="1"
                         Margin="20,0,0,0"
                         Orientation="Horizontal">
-                        <!--<Label Content="Min Age:" Style="{StaticResource MasterLabelTextStyle}"/>
-                        <TextBox
-                            Name="TextBox_MinAge"
-                            Width="40"
-                            Text="{Binding MinAgeText}"/>
-                        <Label Content="Max Age:" Style="{StaticResource MasterLabelTextStyle}"/>
-                        <TextBox
-                            Name="TextBox_MaxAge"
-                            Width="40"
-                            Text="{Binding MaxAgeText}"/>
+                        <Label Content="Region:" Style="{StaticResource MasterLabelTextStyle}"/>
+                       <TextBox
+                            Name="TextBox_Region"
+                           Margin="40,0,0,0"
+                           Width="100"
+                            Text="{Binding RegionText}"/>
                         <Button 
-                            x:Name="Button_AgeFilter" 
+                            x:Name="Button_RegionFilter" 
                             Width="40"
                             Height="20"
                             Margin="3"
@@ -153,7 +149,7 @@
                             FontSize="10"
                             Content="Filter"
                             Style="{StaticResource ButtonStyleSmall}"
-                            Command="{Binding Path=AgeFilterPlantsListCommand}"/>-->
+                            Command="{Binding Path=RegionFilterPlantsListCommand}"/>
                     </StackPanel>
                     <StackPanel
                         Grid.Row="2"
@@ -161,20 +157,21 @@
                         Orientation="Horizontal">
                         <Label Content="Sort by:" Style="{StaticResource MasterLabelTextStyle}"/>
                         <RadioButton 
-                            Name="RadioButton_LastNameSort"
+                            Name="RadioButton_PosionousSort"
                             Margin="5,5,0,0"
                             Content="Posionous"
                             Style="{StaticResource RadioButtonStyle}"
                             Command="{Binding Path=SortPlantsListCommand}"
-                            CommandParameter="LastName"
+                            CommandParameter="Posionous"
                             IsChecked="True"/>
                         <RadioButton 
-                            Name="RadioButton_AgeSort"
+                            Name="RadioButton_EdibleSort"
                             Margin="5,5,0,0"
-                            Content="edible"
+                            Content="Edible"
                             Style="{StaticResource RadioButtonStyle}"
                             Command="{Binding Path=SortPlantsListCommand}"
-                            CommandParameter="Age"/>
+                            CommandParameter="Edible"/>
+
                         <Button 
                             x:Name="Button_ResetList" 
                             Width="60"

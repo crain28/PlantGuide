@@ -24,6 +24,7 @@ namespace PlantGuide.Models
         private string _description;
         private string _uses;
         private string _region;
+        private string _poisionous;
 
 
         #endregion
@@ -97,6 +98,16 @@ namespace PlantGuide.Models
             {
                 _region = value;
                 OnPropertyChanged(nameof(Region));
+            }
+        }
+
+        public string Poisionous
+        {
+            get { return _poisionous; }
+            set
+            {
+                _poisionous = value;
+                OnPropertyChanged(nameof(Poisionous));
             }
         }
 
