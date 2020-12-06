@@ -14,7 +14,7 @@ using PlantGuide.Models;
 
 namespace PlantGuide
 {
-    class MainWindowViewModel
+    class MainWindowViewModel : ObservableObject
     {
         private enum OperationStatus
         {
@@ -103,13 +103,12 @@ namespace PlantGuide
         private bool _showAddButton = true;
 
         private string _sortType;
+
         private string _searhText;
         private string _poisonousText;
         private string _regionText;
         private string _edibleText;
-        private string minRegion;
-        
-
+        private int minRegion;
 
         #endregion
 
@@ -219,10 +218,6 @@ namespace PlantGuide
             }
         }
 
-        private void OnPropertyChanged(string v)
-        {
-
-        }
 
         #endregion
 
@@ -233,10 +228,10 @@ namespace PlantGuide
             // make path for the code below
 
 
-            //_pBusiness = new PlantBusiness();
-            //Plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
+            _pBusiness = new PlantBusiness();
+            Plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
 
-            Plants = new ObservableCollection<PlantDetail>(SeedData.GetPlants());
+            //Plants = new ObservableCollection<PlantDetail>(SeedData.GetPlants());
 
             UpdateImagePath();
         }
@@ -307,7 +302,7 @@ namespace PlantGuide
                     {
                         // add plant to persistence
                         _pBusiness.AddPlant(_detailedViewPlant);
-                        
+
                         // add plant to list - update view
                         _plants.Add(DetailedViewPlant);
                     }
@@ -377,11 +372,15 @@ namespace PlantGuide
 
         private void OnSortPlantsList(object obj)
         {
-            string sortType = obj.ToString();
+            string sortType = obj.ToString().ToLower();
             switch (sortType)
             {
-                case "Poisionous":
+                case "poisionous":
                     Plants = new ObservableCollection<PlantDetail>(Plants.OrderBy(c => c.Poisionous));
+                    break;
+
+                case "edible":
+                    Plants = new ObservableCollection<PlantDetail>(Plants.OrderBy(c => c.Edible));
                     break;
 
                 default:
@@ -396,27 +395,19 @@ namespace PlantGuide
             EdibleText = "";
 
             // reset to full list before search
-            _plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
+            var plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
             UpdateImagePath();
-
-            Plants = new ObservableCollection<PlantDetail>(_plants.Where(c => c.Name.ToLower().Contains(_searhText)));
+            // Case Sensitive
+            Plants = new ObservableCollection<PlantDetail>(_plants.Where(c => c.Name.Contains(_searhText)));
         }
 
-        // Region need to make changes to have region N, S, W, E as values
-
+        //Filters Region between S, N, E, W
         private void OnRegionFilterPlantsList()
         {
-            // reset search text box
-            SearchText = "";
+            var plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
+            UpdateImagePath();
 
-            if (int.TryParse(RegionText, out int minRegion) && int.TryParse(RegionText, out int maxRegion))
-            {
-                // reset to full list before search
-                _plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
-                UpdateImagePath();
-
-                Plants = new ObservableCollection<PlantDetail>(_plants.Where(c => c.Region >= minRegion && c.Region <= maxRegion));
-            }
+            Plants = new ObservableCollection<PlantDetail>(plants.Where(c => c.Region == RegionText));
         }
 
         private void OnResetPlantsList()

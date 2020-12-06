@@ -2,7 +2,7 @@
   {
     "Id": "1",
     "Name": "Mint",
-    "Uses": "Edible",
+    "Uses": "edible",
     "Region": "N",
     "ImageFileName": "Mint.jpg",
     "Description": "Is a edible plant that taste like peppermint, mainly found in wet swampy areas."
@@ -11,7 +11,7 @@
     "Id": "2",
     "Name": "Thisle",
     "Region": "N",
-    "Uses": "Edible",
+    "Uses": "edible",
     "ImageFileName": "Thistle.jpg",
     "Description": "The Flower of the thiste plant is edible. you can cook it a while to make the thorns brittle so they fall off"
   },
@@ -19,7 +19,7 @@
     "Id": "3",
     "Name": "Cattail",
     "Region": "S",
-    "Uses": "Edible",
+    "Uses": "edible",
     "ImageFileName": "Cattail.jpg",
     "Description": "Roots are edible reommend cooking but can be eaten raw."
   },
@@ -27,7 +27,7 @@
     "Id": "4",
     "Name": "Dandelion",
     "Region": "N",
-    "Uses": "Edible",
+    "Uses": "edible",
     "ImageFileName": "dandelion.jpg",
     "Description": "Everything apart of this plant are edible make sure it is washed be for consummig."
   }

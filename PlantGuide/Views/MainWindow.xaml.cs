@@ -24,10 +24,5 @@ namespace PlantGuide
         {
             InitializeComponent();
         }
-
-        private void _master_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

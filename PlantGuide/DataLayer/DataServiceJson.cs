@@ -30,8 +30,9 @@ namespace PlantGuide.DataLayer
                     plants = JsonConvert.DeserializeObject<List<PlantDetail>>(jsonString);
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                var errorMessage = e.Message;
                 throw;
             }
 

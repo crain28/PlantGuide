@@ -237,7 +237,7 @@
                                                         FontSize="10"
                                                         Content="View"
                                                         Style="{StaticResource ButtonStyleSmall}"
-                                                        Command="{Binding Path=DataContext.ViewPlantCommand, ElementName=ListWindow}" />
+                                                        Command="{Binding Path=ViewPlantCommand, ElementName=ListWindow}" />
                                             <Button 
                                                         x:Name="Button_Delete" 
                                                         Width="40"
