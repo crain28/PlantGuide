@@ -9,7 +9,7 @@
   },
   {
     "Id": "2",
-    "Name": "Thisle",
+    "Name": "Thistle",
     "Region": "N",
     "Uses": "edible",
     "ImageFileName": "Thistle.jpg",
@@ -30,6 +30,13 @@
     "Uses": "edible",
     "ImageFileName": "dandelion.jpg",
     "Description": "Everything apart of this plant are edible make sure it is washed be for consummig."
+  },
+  {
+    "Id": "4",
+    "Name": "Test",
+    "Region": "E",
+    "Uses": "poisonous",
+    "Description": "Just test"
   }
 
 

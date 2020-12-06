@@ -24,7 +24,7 @@ namespace PlantGuide.Models
         private string _description;
         private string _uses;
         private string _region;
-        private string _poisionous;
+        private string _poisonous;
         private string _edible;
 
 
@@ -52,7 +52,6 @@ namespace PlantGuide.Models
                 OnPropertyChanged(nameof(Name));
             }
         }
-
 
         public string ImageFileName
         {
@@ -102,13 +101,13 @@ namespace PlantGuide.Models
             }
         }
 
-        public string Poisionous
+        public string Poisonous
         {
-            get { return _poisionous; }
+            get { return _poisonous; }
             set
             {
-                _poisionous = value;
-                OnPropertyChanged(nameof(Poisionous));
+                _poisonous = value;
+                OnPropertyChanged(nameof(Poisonous));
             }
         }
 

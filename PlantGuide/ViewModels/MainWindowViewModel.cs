@@ -188,13 +188,13 @@ namespace PlantGuide
             }
         }
 
-        public string PoisionousText
+        public string PoisonousText
         {
             get { return _poisonousText; }
             set
             {
                 _poisonousText = value;
-                OnPropertyChanged(nameof(PoisionousText));
+                OnPropertyChanged(nameof(PoisonousText));
             }
         }
 
@@ -307,6 +307,7 @@ namespace PlantGuide
                         _plants.Add(DetailedViewPlant);
                     }
                     break;
+
                 case OperationStatus.EDIT:
                     PlantDetail plantToUpdate = _plants.FirstOrDefault(c => c.Id == SelectedPlant.Id);
 
@@ -320,6 +321,7 @@ namespace PlantGuide
                         _plants.Add(DetailedViewPlant);
                     }
                     break;
+
                 default:
                     break;
             }
@@ -361,26 +363,21 @@ namespace PlantGuide
 
         private void OnQuitApplication()
         {
-            // call a house keeping method in the business class
             System.Environment.Exit(1);
         }
 
-        private void OnSortListByPoisionous()
-        {
-            Plants = new ObservableCollection<PlantDetail>(_plants.OrderBy(c => c.Poisionous));
-        }
-
+        //Sorting edible and poisonous
         private void OnSortPlantsList(object obj)
         {
-            string sortType = obj.ToString().ToLower();
+            string sortType = obj.ToString();
             switch (sortType)
             {
-                case "poisionous":
-                    Plants = new ObservableCollection<PlantDetail>(Plants.OrderBy(c => c.Poisionous));
+                case "Poisonous":
+                    Plants = new ObservableCollection<PlantDetail>(Plants.Where(c => c.Uses == "poisonous"));
                     break;
 
-                case "edible":
-                    Plants = new ObservableCollection<PlantDetail>(Plants.OrderBy(c => c.Edible));
+                case "Edible":
+                    Plants = new ObservableCollection<PlantDetail>(Plants.Where(c => c.Uses == "edible"));
                     break;
 
                 default:
@@ -390,15 +387,17 @@ namespace PlantGuide
 
         private void OnSearchPlantsList()
         {
-            // reset poisionous filters
-            PoisionousText = "";
+            // reset poisonous filters
+            PoisonousText = "";
             EdibleText = "";
 
             // reset to full list before search
             var plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
             UpdateImagePath();
+
             // Case Sensitive
             Plants = new ObservableCollection<PlantDetail>(_plants.Where(c => c.Name.Contains(_searhText)));
+
         }
 
         //Filters Region between S, N, E, W
@@ -414,7 +413,7 @@ namespace PlantGuide
         {
             // reset search and filter text boxes
             SearchText = "";
-            PoisionousText = "";
+            PoisonousText = "";
             EdibleText = "";
 
             // reset to full list 
