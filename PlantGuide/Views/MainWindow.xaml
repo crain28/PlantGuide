@@ -82,12 +82,12 @@
                 Content="Plant Guide" Width="206"/>
             <Button 
                         x:Name="Button_Quit" 
-                        Width="50"
-                        Height="20"
-                        Margin="440,10,0,0"
+                        Width="55"
+                        Height="25"
+                        Margin="430,10,0,0"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"           
-                        FontSize="10"
+                        FontSize="12"
                         Content="Quit"
                         Style="{StaticResource ButtonStyleLarge}"
                         Command="{Binding QuitApplicationCommand}"/>
@@ -170,8 +170,7 @@
                             Content="Edible"
                             Style="{StaticResource RadioButtonStyle}"
                             Command="{Binding Path=SortPlantsListCommand}"
-                            CommandParameter="Edible"
-                            IsChecked="True"/>
+                            CommandParameter="Edible"/>
 
                         <Button 
                             x:Name="Button_ResetList" 
@@ -291,10 +290,10 @@
                             <Label Content="Region: " Style="{StaticResource DetailLabelStyle}"/>
                             <TextBox Text="{Binding DetailedViewPlant.Region}" Style="{StaticResource DetailTextBoxStyle}"/>
                         </StackPanel>                        
-                        <!--<StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal">
                             <Label Content="Uses: " Style="{StaticResource DetailLabelStyle}"/>
                             <TextBox Text="{Binding DetailedViewPlant.Uses}" Style="{StaticResource DetailTextBoxStyle}"/>
-                        </StackPanel>-->                        
+                        </StackPanel>                        
                         <StackPanel Orientation="Vertical">
                             <Label Content="Description: " Style="{StaticResource DetailLabelStyle}"/>
                             <TextBox

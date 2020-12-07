@@ -108,7 +108,6 @@ namespace PlantGuide
         private string _poisonousText;
         private string _regionText;
         private string _edibleText;
-        private int minRegion;
 
         #endregion
 
@@ -225,14 +224,10 @@ namespace PlantGuide
 
         public MainWindowViewModel()
         {
-            // make path for the code below
-
-
             _pBusiness = new PlantBusiness();
             Plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
 
             //Plants = new ObservableCollection<PlantDetail>(SeedData.GetPlants());
-
             UpdateImagePath();
         }
 
@@ -387,7 +382,7 @@ namespace PlantGuide
 
         private void OnSearchPlantsList()
         {
-            // reset poisonous filters
+            // reset filters
             PoisonousText = "";
             EdibleText = "";
 
@@ -395,9 +390,8 @@ namespace PlantGuide
             var plants = new ObservableCollection<PlantDetail>(_pBusiness.AllPlants());
             UpdateImagePath();
 
-            // Case Sensitive
-            Plants = new ObservableCollection<PlantDetail>(_plants.Where(c => c.Name.Contains(_searhText)));
-
+            // search input
+            Plants = new ObservableCollection<PlantDetail>(_plants.Where(c => c.Name.Trim().Contains(_searhText)));
         }
 
         //Filters Region between S, N, E, W
