@@ -8,13 +8,7 @@ using System.Threading.Tasks;
 namespace PlantGuide.Models
 {
     public class PlantDetail : ObservableObject
-    {
-        #region ENUMS
-
-
-
-        #endregion
-
+    {     
         #region FIELDS
 
         private int _id;

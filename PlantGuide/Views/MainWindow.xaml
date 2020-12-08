@@ -82,6 +82,7 @@
                 Content="Plant Guide" Width="206"/>
             <Button 
                         x:Name="Button_Quit" 
+                        Background="Black"
                         Width="55"
                         Height="25"
                         Margin="430,10,0,0"
@@ -222,9 +223,11 @@
                                                 Style="{StaticResource MasterLabelTextStyle}"/>
                                             <Label
                                                 Content="{Binding Region }"
-                                                Padding="0,5"
+                                                Padding="5"
                                                 Style="{StaticResource MasterLabelTextStyle}"/>
-                                            
+                                            <Label
+                                                Content="{Binding Uses }"
+                                                Style="{StaticResource MasterLabelTextStyle}"/>
                                         </StackPanel>
                                         <StackPanel
                                             Orientation="Horizontal">
@@ -247,7 +250,7 @@
                                                         FontSize="10"
                                                         Content="Delete"
                                                         Style="{StaticResource ButtonStyleSmall}"
-                                                        Command="{Binding Path=DataContext.DeletePlantCommand, ElementName=ListWindow}" />
+                                                        Command="{Binding Path=DeletePlantCommand, ElementName=ListWindow}" />
                                             <Button 
                                                         x:Name="Button_Edit" 
                                                         Width="40"
@@ -257,7 +260,7 @@
                                                         FontSize="10"
                                                         Content="Edit"
                                                         Style="{StaticResource ButtonStyleSmall}"
-                                                        Command="{Binding Path=DataContext.EditPlantCommand, ElementName=ListWindow}" />
+                                                        Command="{Binding Path=EditPlantCommand, ElementName=ListWindow}" />
                                         </StackPanel>
                                     </StackPanel>
                                 </StackPanel>
@@ -309,7 +312,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-                <StackPanel 
+                <!--<StackPanel 
                     Grid.Row="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
@@ -346,7 +349,7 @@
                         Style="{StaticResource ButtonStyleLarge}"
                         Visibility="{Binding IsEditingAdding}"
                         Command="{Binding Path=CancelPlantCommand}"/>
-                </StackPanel>
+                </StackPanel>-->
             </StackPanel>
 
         </Grid>

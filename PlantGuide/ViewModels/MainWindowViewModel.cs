@@ -16,6 +16,8 @@ namespace PlantGuide
 {
     class MainWindowViewModel : ObservableObject
     {
+        #region ENUMS
+
         private enum OperationStatus
         {
             NONE,
@@ -24,6 +26,8 @@ namespace PlantGuide
             EDIT,
             DELETE
         }
+
+        #endregion
 
         #region COMMANDS
 
@@ -84,13 +88,7 @@ namespace PlantGuide
 
 
         #endregion
-
-        #region ENUMS
-
-
-
-        #endregion
-
+                
         #region FIELDS
 
         private ObservableCollection<PlantDetail> _plants;
@@ -407,6 +405,7 @@ namespace PlantGuide
         {
             // reset search and filter text boxes
             SearchText = "";
+            RegionText = "";
             PoisonousText = "";
             EdibleText = "";
 
